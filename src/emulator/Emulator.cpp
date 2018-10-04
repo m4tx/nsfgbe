@@ -4,7 +4,7 @@
 #include <emulator/cpu/instructions/impl/Calls.hpp>
 #include "Emulator.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 Emulator::Emulator(const ROM &rom, Frontend &frontend) :
         frontend(frontend),
@@ -81,7 +81,7 @@ void Emulator::generateFrame() {
         }
         if (interruptAddress != InterruptManager::NO_INTERRUPT) {
             interruptManager.disableInterrupts();
-            gb::instr::callImm16(*this, interruptAddress);
+            nsfgbe::instr::callImm16(*this, interruptAddress);
         }
 
         totalTicks += ticks;

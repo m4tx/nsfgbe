@@ -5,7 +5,7 @@
 // Shay Green <gblargg@gmail.com>
 
 
-namespace gb {
+namespace nsfgbe {
 namespace test {
 namespace blargg {
 namespace cpu_instrs {

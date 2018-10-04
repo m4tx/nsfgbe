@@ -1,6 +1,6 @@
 #include "DMARegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 DMARegister::DMARegister(DMA &dma) : dma(dma) {}
 

@@ -6,7 +6,7 @@
 
 #include "InputHandler.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class Frontend : public InputHandler {
 public:

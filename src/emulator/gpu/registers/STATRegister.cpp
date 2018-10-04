@@ -1,6 +1,6 @@
 #include "STATRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 STATRegister::STATRegister() : MMIORegister(0) {}
 

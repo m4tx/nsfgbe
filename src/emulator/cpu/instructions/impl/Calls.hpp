@@ -5,7 +5,7 @@
 #include <emulator/Emulator.hpp>
 #include "Loads.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 /** Push address of next instruction onto stack and then jump to address nn. */

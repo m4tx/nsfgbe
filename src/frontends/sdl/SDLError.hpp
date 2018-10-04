@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace gb {
+namespace nsfgbe {
 
 class SDLError : public std::runtime_error {
 public:

@@ -6,7 +6,7 @@
 
 #include <Types.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 const size_t SCREEN_WIDTH = 160;
 const size_t SCREEN_HEIGHT = 144;

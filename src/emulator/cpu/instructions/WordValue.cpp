@@ -1,6 +1,6 @@
 #include "WordValue.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 template<>
 WordValue<ARG_REG_AF>::operator Word() const {

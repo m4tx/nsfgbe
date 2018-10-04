@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-namespace gb {
+namespace nsfgbe {
 
 SDLError::SDLError(std::string const &message) :
         runtime_error(message + ": " + SDL_GetError()) {

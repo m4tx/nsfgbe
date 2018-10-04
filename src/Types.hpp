@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-namespace gb {
+namespace nsfgbe {
 
 typedef uint8_t Byte;
 typedef int8_t SignedByte;

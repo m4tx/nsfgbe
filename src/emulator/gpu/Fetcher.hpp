@@ -5,7 +5,7 @@
 #include "PixelFIFO.hpp"
 #include "OAMEntry.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class GPU;
 

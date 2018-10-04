@@ -1,7 +1,7 @@
 #include "TimerControlRegister.hpp"
 #include "Timer.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 TimerControlRegister::TimerControlRegister(Timer &timer) :
         MMIORegister(0x00),

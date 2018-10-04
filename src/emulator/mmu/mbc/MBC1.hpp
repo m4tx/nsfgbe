@@ -4,7 +4,7 @@
 
 #include "MemoryBankController.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class MBC1 : public MemoryBankController {
 private:

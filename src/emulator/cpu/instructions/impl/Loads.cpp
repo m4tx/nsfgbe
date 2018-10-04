@@ -1,7 +1,7 @@
 #include "Loads.hpp"
 #include "Arithmetic.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 void ldAPtrImm16(Emulator &emulator, Word operand) {

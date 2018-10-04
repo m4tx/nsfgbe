@@ -2,7 +2,7 @@
 #define GAMEBOY_EMULATOR_INPUTHANDLER_H
 
 
-namespace gb {
+namespace nsfgbe {
 
 class InputHandler {
 public:

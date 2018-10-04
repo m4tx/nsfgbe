@@ -2,7 +2,7 @@
 
 #include <emulator/cpu/instructions/impl/Calls.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 InterruptManager::InterruptManager() :
         ifReg(0x0),

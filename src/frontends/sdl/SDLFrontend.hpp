@@ -9,7 +9,7 @@
 #include <emulator/Constants.hpp>
 #include <frontends/Frontend.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class SDLFrontend : public Frontend {
 private:

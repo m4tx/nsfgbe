@@ -4,7 +4,7 @@
 
 #include "GPUMode.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class HBlankMode : public GPUMode {
 protected:

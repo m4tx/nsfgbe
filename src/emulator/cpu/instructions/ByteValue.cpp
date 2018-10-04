@@ -1,6 +1,6 @@
 #include "ByteValue.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 template<>
 ByteValue<ARG_REG_B>::operator Byte() const {

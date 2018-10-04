@@ -5,7 +5,7 @@
 #include <emulator/mmu/MMIORegister.hpp>
 #include "DMA.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class DMARegister : public BaseMMIORegister {
 private:

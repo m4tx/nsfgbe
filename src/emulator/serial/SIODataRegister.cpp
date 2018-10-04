@@ -1,7 +1,7 @@
 #include "SIODataRegister.hpp"
 #include "SerialLinkManager.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 SIODataRegister::SIODataRegister(SerialLinkManager &serialLinkManager)
         : MMIORegister(0x00), serialLinkManager(serialLinkManager) {}

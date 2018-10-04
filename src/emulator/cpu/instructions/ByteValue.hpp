@@ -4,7 +4,7 @@
 
 #include <emulator/Emulator.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 enum InstrArgByte {
     ARG_REG_B,

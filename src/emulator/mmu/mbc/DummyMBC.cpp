@@ -1,6 +1,6 @@
 #include "DummyMBC.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 DummyMBC::DummyMBC(MMU &mmu) : MemoryBankController(mmu) {}
 

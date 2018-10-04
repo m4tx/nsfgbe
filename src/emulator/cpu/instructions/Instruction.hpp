@@ -7,7 +7,7 @@
 
 #include <emulator/cpu/CPUTypes.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class Emulator;
 

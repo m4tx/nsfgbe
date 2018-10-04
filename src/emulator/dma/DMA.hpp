@@ -6,7 +6,7 @@
 
 #include <Types.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class MMU;
 

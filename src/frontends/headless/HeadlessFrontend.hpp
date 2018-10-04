@@ -7,7 +7,7 @@
 #include <frontends/Frontend.hpp>
 #include <emulator/Constants.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class HeadlessFrontend : public Frontend {
 private:

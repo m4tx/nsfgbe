@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-namespace gb {
+namespace nsfgbe {
 
 typedef uint16_t Operand;
 

@@ -4,7 +4,7 @@
 
 #include <Types.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 enum class GPUModeId : Byte {
     HBLANK = 0,

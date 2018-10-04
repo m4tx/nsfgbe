@@ -13,7 +13,7 @@
 #include "DividerRegister.hpp"
 #include "TimerControlRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class Timer {
 public:

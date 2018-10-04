@@ -5,7 +5,7 @@
 #include <bitset>
 #include <emulator/mmu/MMIORegister.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class InterruptManager {
 private:

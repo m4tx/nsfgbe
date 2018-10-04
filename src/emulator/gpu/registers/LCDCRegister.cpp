@@ -1,6 +1,6 @@
 #include "LCDCRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 LCDCRegister::LCDCRegister() : MMIORegister(0x91) {}
 

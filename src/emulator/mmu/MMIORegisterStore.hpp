@@ -7,7 +7,7 @@
 #include "BaseMMIORegister.hpp"
 #include "MMIOHandler.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 template<std::size_t N>
 class MMIORegisterStore : public MMIOHandler {

@@ -13,7 +13,7 @@
 #include <emulator/mmu/mbc/MemoryBankController.hpp>
 #include <emulator/serial/SerialLinkManager.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class MMU {
 private:

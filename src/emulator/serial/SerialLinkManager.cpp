@@ -1,6 +1,6 @@
 #include "SerialLinkManager.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 void SerialLinkManager::sendByte(Byte value) {
     dataSent.push_back(value);

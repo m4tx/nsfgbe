@@ -1,9 +1,9 @@
 #include "InstructionList.hpp"
 #include "InstructionImpl.hpp"
 
-using namespace gb::instr;
+using namespace nsfgbe::instr;
 
-namespace gb {
+namespace nsfgbe {
 
 const std::array<Instruction, 256> INSTRUCTION_LIST{
         // 0x00

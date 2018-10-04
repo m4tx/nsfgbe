@@ -1,6 +1,6 @@
 #include "PaletteRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 PaletteRegister::PaletteRegister(Byte value) : MMIORegister(value) {
     recreatePalette();

@@ -5,7 +5,7 @@
 #include <emulator/mmu/MMIORegister.hpp>
 #include <emulator/gpu/GPUTypes.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class STATRegister : public MMIORegister<MMIOPermissions::READ_WRITE> {
 private:

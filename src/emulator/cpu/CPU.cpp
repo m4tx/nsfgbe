@@ -1,6 +1,6 @@
 #include "CPU.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 bool CPU::getFlag(Byte flag) const {
     return registers.f & flag;

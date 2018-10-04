@@ -7,7 +7,7 @@
 #include "Instruction.hpp"
 #include "InstructionInstance.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class InstructionDecoder {
 private:

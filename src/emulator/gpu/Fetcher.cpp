@@ -6,7 +6,7 @@
 #include "GPUTypes.hpp"
 #include "GPU.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 Fetcher::Fetcher(GPU &gpu, PixelFIFO &pixelFIFO) :
         gpu(gpu), pixelFIFO(pixelFIFO) {}

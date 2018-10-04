@@ -1,6 +1,6 @@
 #include "Jumps.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 void jp(Emulator &emulator, Word operand) {

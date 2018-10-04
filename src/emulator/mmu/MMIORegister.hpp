@@ -4,7 +4,7 @@
 
 #include "BaseMMIORegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 enum MMIOPermissions {
     READ = 1 << 0,

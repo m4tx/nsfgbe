@@ -3,7 +3,7 @@
 #include "SDLFrontend.hpp"
 #include "SDLError.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 SDLFrontend::SDLFrontend() {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {

@@ -1,6 +1,6 @@
 #include "Miscellaneous.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 void daa(Emulator &emulator, Word operand) {

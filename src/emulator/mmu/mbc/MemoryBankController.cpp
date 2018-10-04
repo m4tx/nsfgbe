@@ -4,7 +4,7 @@
 #include "DummyMBC.hpp"
 #include "MBC1.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 MemoryBankController::MemoryBankController(MMU &mmu) : mmu(mmu) {}
 

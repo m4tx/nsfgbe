@@ -4,7 +4,7 @@
 
 #include <emulator/mmu/MMIORegister.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class SerialLinkManager;
 

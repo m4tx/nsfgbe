@@ -20,7 +20,7 @@
 #include "emulator/gpu/registers/GPURegisters.hpp"
 #include "OAMEntry.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class GPU {
 private:

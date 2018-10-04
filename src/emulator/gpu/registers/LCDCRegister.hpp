@@ -4,7 +4,7 @@
 
 #include <emulator/mmu/MMIORegister.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class LCDCRegister : public MMIORegister<MMIOPermissions::READ_WRITE> {
 public:

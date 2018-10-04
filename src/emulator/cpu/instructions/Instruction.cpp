@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace gb {
+namespace nsfgbe {
 
 void defaultExecutor(Emulator &emulator, Operand operand) {
     throw std::runtime_error("Instruction not implemented");

@@ -2,7 +2,7 @@
 
 #include <cassert>
 
-namespace gb {
+namespace nsfgbe {
 
 PixelFIFO::PixelFIFO() = default;
 

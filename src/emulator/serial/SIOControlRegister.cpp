@@ -1,6 +1,6 @@
 #include "SIOControlRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 SIOControlRegister::SIOControlRegister(SerialLinkManager &serialLinkManager)
         : MMIORegister(0x00), serialLinkManager(serialLinkManager) {}

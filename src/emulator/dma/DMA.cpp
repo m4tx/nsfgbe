@@ -3,7 +3,7 @@
 #include <emulator/Constants.hpp>
 #include <emulator/mmu/MMU.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 DMA::DMA(MMU &mmu) : mmu(mmu) {}
 

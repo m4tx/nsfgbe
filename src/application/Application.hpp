@@ -5,7 +5,7 @@
 #include <boost/program_options/positional_options.hpp>
 #include <boost/program_options/variables_map.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 namespace po = boost::program_options;
 

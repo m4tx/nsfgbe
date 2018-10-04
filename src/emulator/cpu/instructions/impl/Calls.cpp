@@ -1,6 +1,6 @@
 #include "Calls.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 void callImm16(Emulator &emulator, Word operand) {

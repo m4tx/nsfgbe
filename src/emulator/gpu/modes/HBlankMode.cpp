@@ -1,6 +1,6 @@
 #include "HBlankMode.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 HBlankMode::HBlankMode(GPU &gpu) : GPUMode(gpu) {}
 

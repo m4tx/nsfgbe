@@ -7,7 +7,7 @@
 #include <emulator/gpu/Fetcher.hpp>
 #include <emulator/gpu/registers/PaletteRegister.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class PixelTransferMode : public GPUMode {
 protected:

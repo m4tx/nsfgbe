@@ -4,7 +4,7 @@
 
 #include <Types.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class MMIOHandler {
 public:

@@ -3,7 +3,7 @@
 #include "InstructionList.hpp"
 #include "ExtendedInstructionList.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 InstructionDecoder::InstructionDecoder(CPU &cpu, MMU &mmu) :
         cpu(cpu), mmu(mmu) {}

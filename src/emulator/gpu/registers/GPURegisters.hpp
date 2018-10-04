@@ -9,7 +9,7 @@
 #include "LCDCRegister.hpp"
 #include "STATRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class GPU;
 

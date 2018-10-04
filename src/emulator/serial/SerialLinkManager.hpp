@@ -8,7 +8,7 @@
 #include "SIODataRegister.hpp"
 #include "SIOControlRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class SerialLinkManager : public MMIORegisterStore<2> {
 private:

@@ -6,7 +6,7 @@
 #include <emulator/mmu/mbc/DummyMBC.hpp>
 #include <emulator/serial/SerialLinkManager.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 MMU::MMU(const ROM &rom, InterruptManager &interruptManager,
          SerialLinkManager &serialLinkManager, GPU &gpu,

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Arithmetic.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 Byte addFlags(Emulator &emulator, Byte a, Byte b, Byte c) {

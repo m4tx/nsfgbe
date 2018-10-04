@@ -2,7 +2,7 @@
 #include "DividerRegister.hpp"
 #include "Timer.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 DividerRegister::DividerRegister(Timer &timer) : timer(timer) {}
 

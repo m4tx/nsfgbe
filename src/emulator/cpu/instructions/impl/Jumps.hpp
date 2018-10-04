@@ -4,7 +4,7 @@
 
 #include <emulator/Emulator.hpp>
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 /** Jump to address nn. */

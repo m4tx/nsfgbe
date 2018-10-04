@@ -2,7 +2,7 @@
 #include <emulator/gpu/GPU.hpp>
 #include <emulator/Constants.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 OAMSearchMode::OAMSearchMode(GPU &gpu) : GPUMode(gpu) {}
 

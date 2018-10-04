@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <regex>
 
-namespace gb {
+namespace nsfgbe {
 
 InstructionInstance::InstructionInstance(
         Address address, const Instruction &instruction, Operand operand) :

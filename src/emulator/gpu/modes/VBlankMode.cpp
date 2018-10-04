@@ -2,7 +2,7 @@
 
 #include <emulator/gpu/GPU.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 VBlankMode::VBlankMode(GPU &gpu) : GPUMode(gpu) {}
 

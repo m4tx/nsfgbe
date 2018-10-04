@@ -1,7 +1,7 @@
 #include "GPURegisters.hpp"
 #include "emulator/gpu/GPU.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 GPURegisters::GPURegisters(GPU &gpu) :
         scy(0x00),

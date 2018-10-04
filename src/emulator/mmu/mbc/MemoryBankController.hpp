@@ -7,7 +7,7 @@
 #include <Types.hpp>
 #include <rom/ROM.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class MMU;
 

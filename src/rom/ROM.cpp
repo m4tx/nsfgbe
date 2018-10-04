@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-namespace gb {
+namespace nsfgbe {
 
 ROM::ROM(const char *path) {
     std::ifstream ifs(path, std::ios::binary | std::ios::ate);

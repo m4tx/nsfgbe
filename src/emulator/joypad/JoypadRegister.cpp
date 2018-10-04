@@ -1,6 +1,6 @@
 #include "JoypadRegister.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 JoypadRegister::JoypadRegister(const InputHandler &inputHandler) :
         inputHandler(inputHandler) {}

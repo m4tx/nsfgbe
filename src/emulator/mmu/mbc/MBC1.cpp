@@ -4,7 +4,7 @@
 
 #include <emulator/mmu/MMU.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 MBC1::MBC1(MMU &mmu) : MemoryBankController(mmu) {}
 

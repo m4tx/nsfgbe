@@ -6,7 +6,7 @@
 
 #include "Instruction.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 extern const std::array<Instruction, 256> EXTENDED_INSTRUCTION_LIST;
 

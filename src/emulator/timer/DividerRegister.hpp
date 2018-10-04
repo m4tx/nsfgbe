@@ -4,7 +4,7 @@
 
 #include <emulator/mmu/BaseMMIORegister.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class Timer;
 

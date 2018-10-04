@@ -1,6 +1,6 @@
 #include "Timer.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 Timer::Timer(InterruptManager &interruptManager) :
         interruptManager(interruptManager),

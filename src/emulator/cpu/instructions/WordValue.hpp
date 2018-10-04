@@ -4,7 +4,7 @@
 
 #include <emulator/Emulator.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 enum InstrArgWord {
     ARG_REG_AF,

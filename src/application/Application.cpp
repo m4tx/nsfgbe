@@ -10,7 +10,7 @@
 #include <emulator/Emulator.hpp>
 #include <frontends/sdl/SDLFrontend.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 Application::Application(int argc, char *argv[])
         : argc(argc), argv(argv) {

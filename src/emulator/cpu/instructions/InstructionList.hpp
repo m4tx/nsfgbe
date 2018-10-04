@@ -6,7 +6,7 @@
 
 #include "Instruction.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 extern const std::array<Instruction, 256> INSTRUCTION_LIST;
 extern const Instruction STOP_INSTRUCTION;

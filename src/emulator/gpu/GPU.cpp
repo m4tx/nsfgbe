@@ -3,7 +3,7 @@
 #include <iostream>
 #include "GPU.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 GPU::GPU(InterruptManager &interruptManager, DMA &dma, uint32_t *pixelBuffer) :
         interruptManager(interruptManager),

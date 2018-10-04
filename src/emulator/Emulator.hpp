@@ -11,7 +11,7 @@
 #include <emulator/joypad/JoypadRegister.hpp>
 #include <emulator/timer/Timer.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class Emulator {
 private:

@@ -9,7 +9,7 @@
 #include "emulator/gpu/GPUTypes.hpp"
 #include "emulator/gpu/RGBPixel.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 typedef std::array<RGBPixel, 4> Palette;
 

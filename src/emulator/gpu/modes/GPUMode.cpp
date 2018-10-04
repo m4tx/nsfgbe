@@ -1,6 +1,6 @@
 #include "GPUMode.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 GPUMode::GPUMode(GPU &gpu) : gpu(gpu) {}
 

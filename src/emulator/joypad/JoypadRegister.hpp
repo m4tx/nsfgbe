@@ -5,7 +5,7 @@
 #include <emulator/mmu/BaseMMIORegister.hpp>
 #include <frontends/InputHandler.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 class JoypadRegister : public BaseMMIORegister {
 private:

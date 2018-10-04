@@ -1,6 +1,6 @@
 #include "HeadlessFrontend.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 bool HeadlessFrontend::isRunning() const {
     return running;

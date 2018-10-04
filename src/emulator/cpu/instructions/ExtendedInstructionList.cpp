@@ -3,10 +3,10 @@
 #include "impl/Miscellaneous.hpp"
 
 
-namespace gb {
+namespace nsfgbe {
 
 using namespace std::string_literals;
-using namespace gb::instr;
+using namespace nsfgbe::instr;
 
 #define GEN_INSTRUCTION_VARIANTS(name, executor) \
     Instruction(name " B", 8, executor<ARG_REG_B>, \

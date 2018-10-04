@@ -9,7 +9,7 @@
 #include <Types.hpp>
 #include "GPUTypes.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class PixelFIFO {
 private:

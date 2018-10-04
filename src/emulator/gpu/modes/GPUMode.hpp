@@ -4,7 +4,7 @@
 
 #include <cstddef>
 
-namespace gb {
+namespace nsfgbe {
 
 class GPU;
 

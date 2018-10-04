@@ -17,7 +17,7 @@
 #include "blargg/cpu_instrs/11-op-a,(hl).hpp"
 
 
-namespace gb {
+namespace nsfgbe {
 namespace test {
 
 

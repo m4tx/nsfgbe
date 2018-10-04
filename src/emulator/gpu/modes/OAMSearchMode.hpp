@@ -4,7 +4,7 @@
 
 #include "GPUMode.hpp"
 
-namespace gb {
+namespace nsfgbe {
 
 class OAMSearchMode : public GPUMode {
 protected:

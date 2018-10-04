@@ -1,6 +1,6 @@
 #include "Shifts.hpp"
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 void rlca(Emulator &emulator, Word operand) {

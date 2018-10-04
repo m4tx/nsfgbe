@@ -5,7 +5,7 @@
 #include <emulator/gpu/GPU.hpp>
 #include <emulator/Constants.hpp>
 
-namespace gb {
+namespace nsfgbe {
 
 PixelTransferMode::PixelTransferMode(GPU &gpu) :
         GPUMode(gpu),

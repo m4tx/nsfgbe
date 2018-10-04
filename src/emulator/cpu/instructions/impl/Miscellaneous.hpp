@@ -5,7 +5,7 @@
 #include <emulator/Emulator.hpp>
 #include <emulator/cpu/instructions/ByteValue.hpp>
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 /** Swap upper & lower nibbles of n. */

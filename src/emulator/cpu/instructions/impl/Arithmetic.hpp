@@ -6,7 +6,7 @@
 #include <emulator/cpu/instructions/ByteValue.hpp>
 #include <emulator/cpu/instructions/WordValue.hpp>
 
-namespace gb {
+namespace nsfgbe {
 namespace instr {
 
 // ####################################
