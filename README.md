@@ -4,6 +4,8 @@
 
 Nintendo Game Boy emulator written in modern C++17.
 
+![Screenshots from Tetris and Super Mario Land](images/screenshot.png)
+
 ## Building
 
 ### Requirements
