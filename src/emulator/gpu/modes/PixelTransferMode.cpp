@@ -13,7 +13,6 @@ PixelTransferMode::PixelTransferMode(GPU &gpu) :
 
 void PixelTransferMode::doStart() {
     currentX = 0;
-    // todo scanline
     Byte scanline = gpu.registers.ly + gpu.registers.scy;
     Byte backgroundX = gpu.registers.scx;
     pixelsToDrop = backgroundX % 8_b;

@@ -16,9 +16,8 @@ namespace nsfgbe {
 class Emulator {
 private:
     InstructionDecoder instructionDecoder;
-    bool running = true;
     size_t totalTicks = 0;
-    bool flag = false;
+    bool printInstructions = false;
 
     void generateFrame();
 
@@ -38,6 +37,11 @@ public:
     void runGame();
 
     void runToNextFrame();
+
+    /**
+     * Debug utility function that prints the state of all CPU registers.
+     */
+    void printRegisters() const;
 };
 
 }
