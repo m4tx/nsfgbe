@@ -8,7 +8,8 @@ Nintendo Game Boy emulator written in modern C++17.
 
 ### Requirements
  
-* C++17-capable compiler
+* CMake
+* C++17-capable compiler (recommended: G++ 8.0+)
 * SDL2
 * Boost program_options
 * Google Test
