@@ -1,0 +1,99 @@
+#include <iostream>
+#include <emulator/cpu/instructions/InstructionList.hpp>
+#include <emulator/cpu/instructions/ExtendedInstructionList.hpp>
+#include <emulator/cpu/instructions/impl/Calls.hpp>
+#include "Emulator.hpp"
+
+namespace gb {
+
+Emulator::Emulator(const ROM &rom, Frontend &frontend) :
+        frontend(frontend),
+        gpu(interruptManager, dma, frontend.getPixelBuffer()),
+        dma(mmu),
+        joypadRegister(frontend),
+        timer(interruptManager),
+        mmu(rom, interruptManager, serialLinkManager, gpu, joypadRegister,
+            timer),
+        instructionDecoder(cpu, mmu) {}
+
+void Emulator::runGame() {
+    while (frontend.isRunning()) {
+        runToNextFrame();
+    }
+}
+
+void Emulator::runToNextFrame() {
+    frontend.update();
+    frontend.beforeSurfaceUpdate();
+
+    generateFrame();
+
+    frontend.afterSurfaceUpdate();
+    frontend.render();
+    frontend.postRender();
+}
+
+void Emulator::generateFrame() {
+    bool generatedFrame = false;
+    while (!generatedFrame) {
+        size_t ticks;
+        if (cpu.halted) {
+            ticks = 4;
+        } else {
+            auto instructionInstance = instructionDecoder.retrieveInstruction();
+//            std::cout << std::endl;
+//            if (instructionInstance.operand == 0x1200) {
+//                std::cout << "topkek" << std::endl;
+//                flag = true;
+//            }
+            if (instructionInstance.instruction.format == "CP %x" &&
+                instructionInstance.operand == 0xCB) {
+                std::cout << "OMG" << std::endl;
+//                flag = true;
+            }
+            if (flag) {
+                std::cout << instructionInstance << std::endl;
+            }
+            // $C317
+            if (instructionInstance.address == 0xc36f) {
+//                flag = true;
+            }
+            instructionInstance.execute(*this);
+            ticks = instructionInstance.instruction.ticks;
+
+//            printf("A: %02X, F: %02X, AF: %04X\n", cpu.registers.a, cpu.registers.f, cpu.registers.af);
+//            printf("B: %02X, C: %02X, BC: %04X\n", cpu.registers.b, cpu.registers.c, cpu.registers.bc);
+//            printf("D: %02X, E: %02X, DE: %04X\n", cpu.registers.d, cpu.registers.e, cpu.registers.de);
+//            printf("H: %02X, L: %02X, HL: %04X\n", cpu.registers.h, cpu.registers.l, cpu.registers.hl);
+//            printf("PC: %04X, SP: %04X\n", cpu.registers.pc, cpu.registers.sp);
+//            printf("[AF]: %04X, [BC]: %04X\n", mmu.getWord(cpu.registers.af), mmu.getWord(cpu.registers.bc));
+//            printf("[DE]: %04X, [HL]: %04X\n", mmu.getWord(cpu.registers.de), mmu.getWord(cpu.registers.hl));
+//            printf("Z: %d, N: %d, H: %d, C: %d\n", cpu.getFlag(FLAG_ZERO), cpu.getFlag(FLAG_SUBTRACT), cpu.getFlag(FLAG_HALF_CARRY), cpu.getFlag(FLAG_CARRY));
+        }
+
+        dma.tick(ticks);
+        timer.tick(ticks);
+        generatedFrame = gpu.tick(ticks);
+
+        Address interruptAddress = interruptManager.tick();
+        if (interruptManager.checkInterruptFired()) {
+            cpu.halted = false;
+        }
+        if (interruptAddress != InterruptManager::NO_INTERRUPT) {
+            interruptManager.disableInterrupts();
+            gb::instr::callImm16(*this, interruptAddress);
+        }
+
+        totalTicks += ticks;
+
+//        std::cout << std::endl;
+//        std::cin >> xd;
+    }
+
+    if (cpu.registers.pc == 0xff) {
+        std::cout << "execution stopped" << std::endl;
+        exit(0);
+    }
+}
+
+}

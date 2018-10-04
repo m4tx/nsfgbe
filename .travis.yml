@@ -1,0 +1,35 @@
+language: cpp
+sudo: required
+dist: trusty
+
+compiler:
+- gcc
+os:
+- linux
+
+matrix:
+  include:
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-8
+        - libboost-program-options-dev
+        - libsdl2-dev
+        - libgtest-dev
+        - cmake
+    env:
+    - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+
+before_install:
+- eval "${MATRIX_EVAL}"
+
+before_script:
+- (cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib)
+- mkdir build
+- cd build
+- cmake ..
+
+script: make && make test
