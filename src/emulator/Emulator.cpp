@@ -48,7 +48,6 @@ void Emulator::generateFrame() {
 //            }
             if (instructionInstance.instruction.format == "CP %x" &&
                 instructionInstance.operand == 0xCB) {
-                std::cout << "OMG" << std::endl;
 //                flag = true;
             }
             if (flag) {

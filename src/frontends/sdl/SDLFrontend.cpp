@@ -11,7 +11,7 @@ SDLFrontend::SDLFrontend() {
     }
 
     window = SDL_CreateWindow(
-            "Gameboy Emulator",
+            "NSFGBE",
             SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
             WINDOW_WIDTH, WINDOW_HEIGHT,
             SDL_WINDOW_SHOWN);
