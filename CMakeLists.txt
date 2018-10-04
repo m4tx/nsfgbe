@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(gameboy_emulator)
+project(nsfgbe)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 # Library
 #
 
-add_library(gameboy_emulator_lib
+add_library(nsfgbe_lib
         src/application/Application.cpp src/application/Application.hpp
         src/rom/ROM.cpp src/rom/ROM.hpp
         src/emulator/Emulator.cpp src/emulator/Emulator.hpp
@@ -26,6 +26,7 @@ add_library(gameboy_emulator_lib
         src/emulator/cpu/instructions/WordValue.cpp src/emulator/cpu/instructions/WordValue.hpp
         src/emulator/gpu/Fetcher.cpp src/emulator/gpu/Fetcher.hpp
         src/emulator/gpu/PixelFIFO.cpp src/emulator/gpu/PixelFIFO.hpp
+        src/frontends/Frontend.hpp
         src/frontends/sdl/SDLFrontend.cpp src/frontends/sdl/SDLFrontend.hpp
         src/frontends/sdl/SDLError.cpp src/frontends/sdl/SDLError.hpp
         src/emulator/gpu/modes/GPUMode.cpp src/emulator/gpu/modes/GPUMode.hpp
@@ -69,33 +70,33 @@ add_library(gameboy_emulator_lib
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrapv -fsanitize=undefined -fsanitize=address")
 
-target_include_directories(gameboy_emulator_lib PUBLIC src)
+target_include_directories(nsfgbe_lib PUBLIC src)
 
 # SDL2
 find_package(SDL2)
 if (SDL2_FOUND)
-    target_include_directories(gameboy_emulator_lib PUBLIC SDL2::SDL2)
-    target_link_libraries(gameboy_emulator_lib SDL2::SDL2)
+    target_include_directories(nsfgbe_lib PUBLIC SDL2::SDL2)
+    target_link_libraries(nsfgbe_lib SDL2::SDL2)
 else ()
     INCLUDE(FindPkgConfig)
 
     PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 
     INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
-    TARGET_LINK_LIBRARIES(gameboy_emulator_lib ${SDL2_LIBRARIES})
+    TARGET_LINK_LIBRARIES(nsfgbe_lib ${SDL2_LIBRARIES})
 endif ()
 
 # Boost
 find_package(Boost REQUIRED COMPONENTS program_options)
 include_directories(${Boost_INCLUDE_DIRS})
-target_link_libraries(gameboy_emulator_lib ${Boost_LIBRARIES})
+target_link_libraries(nsfgbe_lib ${Boost_LIBRARIES})
 
 #
 # Main executable
 #
 
-add_executable(gameboy_emulator src/application/main.cpp src/frontends/Frontend.hpp)
-target_link_libraries(gameboy_emulator gameboy_emulator_lib)
+add_executable(nsfgbe src/application/main.cpp)
+target_link_libraries(nsfgbe nsfgbe_lib)
 
 
 #
@@ -106,7 +107,7 @@ enable_testing()
 include(GoogleTest)
 find_package(GTest REQUIRED)
 
-add_executable(gameboy_emulator_test
+add_executable(nsfgbe_test
         test/BlarggCpuInstrsTests.cpp
         "test/blargg/cpu_instrs/01-special.hpp"
         "test/blargg/cpu_instrs/02-interrupts.hpp"
@@ -119,9 +120,9 @@ add_executable(gameboy_emulator_test
         "test/blargg/cpu_instrs/09-op-r,r.hpp"
         "test/blargg/cpu_instrs/10-bit-ops.hpp"
         "test/blargg/cpu_instrs/11-op-a,(hl).hpp")
-target_include_directories(gameboy_emulator_test PUBLIC src)
-target_link_libraries(gameboy_emulator_test
-        gameboy_emulator_lib
+target_include_directories(nsfgbe_test PUBLIC src)
+target_link_libraries(nsfgbe_test
+        nsfgbe_lib
         GTest::GTest GTest::Main)
 
-gtest_add_tests(TARGET gameboy_emulator_test)
+gtest_add_tests(TARGET nsfgbe_test)

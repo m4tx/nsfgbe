@@ -21,7 +21,7 @@ mkdir build
 cd build
 cmake ..
 make
-./gameboy_emulator path-to-rom.gb
+./nsfgbe path-to-rom.gb
 ```
 
 ## Keymap
