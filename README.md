@@ -1,4 +1,4 @@
-# nsfgbe
+# nsfgbe [![Build Status](https://travis-ci.com/m4tx/nsfgbe.svg?branch=master)](https://travis-ci.com/m4tx/nsfgbe)
 
 (Not So Fast Game Boy Emulator)
 
