@@ -78,11 +78,11 @@ bool PixelTransferMode::canRetrievePixel() const {
 
 const Palette &PixelTransferMode::getPaletteForSource(PixelSource source) {
     switch (source) {
-        case PIXEL_SOURCE_BG:
+        case PixelSource::BG:
             return gpu.registers.bgp.getPalette();
-        case PIXEL_SOURCE_OB0:
+        case PixelSource::OB0:
             return gpu.registers.obp0.getPalette();
-        case PIXEL_SOURCE_OB1:
+        case PixelSource::OB1:
             return gpu.registers.obp1.getPalette();
         default:
             throw std::logic_error("Invalid PixelSource");

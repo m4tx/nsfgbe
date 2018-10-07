@@ -77,7 +77,7 @@ void Fetcher::readData1() {
 
 void Fetcher::buildBgPixels() {
     for (int i = 0; i < 8; ++i) {
-        pixels[i].source = PIXEL_SOURCE_BG;
+        pixels[i].source = PixelSource::BG;
         pixels[i].value = static_cast<Byte>(
                 ((tileData0 >> (7 - i)) & 1) |
                 (((tileData1 >> (7 - i)) & 1) << 1));
@@ -125,8 +125,8 @@ void Fetcher::readSpritePattern() {
     sprite = getCurrentOAMEntry().pattern;
     spriteSource =
             getCurrentOAMEntry().getFlag(OAMEntry::Flags::PALETTE) ?
-            PIXEL_SOURCE_OB1 :
-            PIXEL_SOURCE_OB0;
+            PixelSource::OB1 :
+            PixelSource::OB0;
 
     currentMode = FetcherMode::READ_SPRITE_DATA_0;
 }

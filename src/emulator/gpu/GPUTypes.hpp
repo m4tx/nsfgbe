@@ -13,13 +13,13 @@ enum class GPUModeId : Byte {
     PIXEL_TRANSFER = 3,
 };
 
-enum PixelSource {
+enum class PixelSource : Byte {
     /** Background/window pixel (using background palette) */
-    PIXEL_SOURCE_BG = 0x0 << 4,
+    BG,
     /** Object pixel (using sprite palette 0) */
-    PIXEL_SOURCE_OB0 = 0x1 << 4,
+    OB0,
     /** Object pixel (using sprite palette 1) */
-    PIXEL_SOURCE_OB1 = 0x2 << 4,
+    OB1,
 };
 
 struct Pixel {
