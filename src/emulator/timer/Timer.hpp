@@ -17,7 +17,7 @@ namespace nsfgbe {
 
 class Timer {
 public:
-    enum Frequency {
+    enum class Frequency {
         FREQ_4K,
         FREQ_262K,
         FREQ_65K,
@@ -49,7 +49,7 @@ private:
 
     Byte divider = 0;
 
-    size_t counterStep = FREQUENCY_MAP[FREQ_4K];
+    size_t counterStep = FREQUENCY_MAP[static_cast<size_t>(Frequency::FREQ_4K)];
     bool counterEnabled = false;
 
     friend class MMU;

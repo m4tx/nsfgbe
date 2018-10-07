@@ -29,7 +29,7 @@ void Timer::tick(size_t ticks) {
 }
 
 void Timer::setCounterFrequency(Timer::Frequency frequency) {
-    counterStep = FREQUENCY_MAP[frequency];
+    counterStep = FREQUENCY_MAP[static_cast<size_t>(frequency)];
 }
 
 }
