@@ -12,9 +12,9 @@ template<int B, ByteArg R>
 void bit(Emulator &emulator, Word operand) {
     Byte value = ByteValue<R>(emulator);
 
-    emulator.cpu.setFlag(FLAG_ZERO, (value & (1 << B)) == 0);
-    emulator.cpu.resetFlag(FLAG_SUBTRACT);
-    emulator.cpu.setFlag(FLAG_HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, (value & (1 << B)) == 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT);
+    emulator.cpu.setFlag(CPUFlags::HALF_CARRY);
 }
 
 template<int B, ByteArg R>

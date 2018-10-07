@@ -40,26 +40,46 @@ struct Registers {
     Word pc = 0x0100;
 };
 
-enum CPUFlags {
-    FLAG_ZERO = 1 << 7,
-    FLAG_SUBTRACT = 1 << 6,
-    FLAG_HALF_CARRY = 1 << 5,
-    FLAG_CARRY = 1 << 4,
-    ALL_FLAGS = FLAG_ZERO | FLAG_SUBTRACT | FLAG_HALF_CARRY | FLAG_CARRY,
+
+enum class CPUFlags : Byte {
+    ZERO = 1 << 7,
+    SUBTRACT = 1 << 6,
+    HALF_CARRY = 1 << 5,
+    CARRY = 1 << 4,
+    ALL_FLAGS = ZERO | SUBTRACT | HALF_CARRY | CARRY,
 };
+
+CPUFlags operator|(CPUFlags a, CPUFlags b);
+
+CPUFlags &operator|=(CPUFlags &a, CPUFlags b);
+
+Byte &operator|=(Byte &a, CPUFlags b);
+
+CPUFlags operator&(CPUFlags a, CPUFlags b);
+
+CPUFlags operator&(Byte a, CPUFlags b);
+
+CPUFlags operator&(CPUFlags a, Byte b);
+
+CPUFlags &operator&=(CPUFlags &a, CPUFlags b);
+
+Byte &operator&=(Byte &a, CPUFlags b);
+
+CPUFlags operator~(CPUFlags a);
+
 
 class CPU {
 public:
     Registers registers;
     bool halted = false;
 
-    bool getFlag(Byte flag) const;
+    bool getFlag(CPUFlags flag) const;
 
-    void setFlag(Byte flag);
+    void setFlag(CPUFlags flag);
 
-    void setFlag(Byte flag, bool set);
+    void setFlag(CPUFlags flag, bool set);
 
-    void resetFlag(Byte flag);
+    void resetFlag(CPUFlags flag);
 };
 
 }

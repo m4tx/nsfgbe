@@ -9,25 +9,25 @@ void callImm16(Emulator &emulator, Word operand) {
 }
 
 void callNzImm16(Emulator &emulator, Word operand) {
-    if (!emulator.cpu.getFlag(FLAG_ZERO)) {
+    if (!emulator.cpu.getFlag(CPUFlags::ZERO)) {
         callImm16(emulator, operand);
     }
 }
 
 void callZImm16(Emulator &emulator, Word operand) {
-    if (emulator.cpu.getFlag(FLAG_ZERO)) {
+    if (emulator.cpu.getFlag(CPUFlags::ZERO)) {
         callImm16(emulator, operand);
     }
 }
 
 void callNcImm16(Emulator &emulator, Word operand) {
-    if (!emulator.cpu.getFlag(FLAG_CARRY)) {
+    if (!emulator.cpu.getFlag(CPUFlags::CARRY)) {
         callImm16(emulator, operand);
     }
 }
 
 void callCImm16(Emulator &emulator, Word operand) {
-    if (emulator.cpu.getFlag(FLAG_CARRY)) {
+    if (emulator.cpu.getFlag(CPUFlags::CARRY)) {
         callImm16(emulator, operand);
     }
 }
@@ -37,25 +37,25 @@ void ret(Emulator &emulator, Word operand) {
 }
 
 void retNz(Emulator &emulator, Word operand) {
-    if (!emulator.cpu.getFlag(FLAG_ZERO)) {
+    if (!emulator.cpu.getFlag(CPUFlags::ZERO)) {
         ret(emulator, operand);
     }
 }
 
 void retZ(Emulator &emulator, Word operand) {
-    if (emulator.cpu.getFlag(FLAG_ZERO)) {
+    if (emulator.cpu.getFlag(CPUFlags::ZERO)) {
         ret(emulator, operand);
     }
 }
 
 void retNc(Emulator &emulator, Word operand) {
-    if (!emulator.cpu.getFlag(FLAG_CARRY)) {
+    if (!emulator.cpu.getFlag(CPUFlags::CARRY)) {
         ret(emulator, operand);
     }
 }
 
 void retC(Emulator &emulator, Word operand) {
-    if (emulator.cpu.getFlag(FLAG_CARRY)) {
+    if (emulator.cpu.getFlag(CPUFlags::CARRY)) {
         ret(emulator, operand);
     }
 }

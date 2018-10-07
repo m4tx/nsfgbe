@@ -110,10 +110,10 @@ void incR8(Emulator &emulator, Word operand) {
     Byte oldValue = value;
     ++value;
 
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.resetFlag(FLAG_SUBTRACT);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT);
     emulator.cpu.setFlag(
-            FLAG_HALF_CARRY, (((oldValue & 0x0F) + 1) & 0xF0) != 0);
+            CPUFlags::HALF_CARRY, (((oldValue & 0x0F) + 1) & 0xF0) != 0);
 }
 
 /** Decrement single-byte register n. */
@@ -123,9 +123,9 @@ void decR8(Emulator &emulator, Word operand) {
     Byte oldValue = value;
     --value;
 
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_SUBTRACT);
-    emulator.cpu.setFlag(FLAG_HALF_CARRY, (oldValue & 0x0F) == 0);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::SUBTRACT);
+    emulator.cpu.setFlag(CPUFlags::HALF_CARRY, (oldValue & 0x0F) == 0);
 }
 
 // ####################################
@@ -139,11 +139,11 @@ void addHlR16(Emulator &emulator, Word operand) {
     Word b = WordValue<SRC>(emulator);
     emulator.cpu.registers.hl += b;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT);
     emulator.cpu.setFlag(
-            FLAG_CARRY, ((static_cast<uint32_t>(a) + b) & 0xFFFF0000) != 0);
+            CPUFlags::CARRY, ((static_cast<uint32_t>(a) + b) & 0xFFFF0000) != 0);
     emulator.cpu.setFlag(
-            FLAG_HALF_CARRY, (((a & 0x0FFF) + (b & 0x0FFF)) & 0xF000) != 0);
+            CPUFlags::HALF_CARRY, (((a & 0x0FFF) + (b & 0x0FFF)) & 0xF000) != 0);
 }
 
 /** Add n to Stack Pointer (SP). */

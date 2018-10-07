@@ -15,8 +15,8 @@ void swap(Emulator &emulator, Word operand) {
     // Byte is actually unsigned char, so no sign-extending occurs in value >> 4
     value = (value >> 4) | (value << 4);
 
-    emulator.cpu.resetFlag(ALL_FLAGS);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
+    emulator.cpu.resetFlag(CPUFlags::ALL_FLAGS);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
 }
 
 /** Decimal adjust register A.

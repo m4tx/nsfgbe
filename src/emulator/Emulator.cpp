@@ -81,8 +81,8 @@ void Emulator::printRegisters() const {
     printf("[DE]: %04X, [HL]: %04X\n",
            mmu.getWord(cpu.registers.de), mmu.getWord(cpu.registers.hl));
     printf("Z: %d, N: %d, H: %d, C: %d\n",
-           cpu.getFlag(FLAG_ZERO), cpu.getFlag(FLAG_SUBTRACT),
-           cpu.getFlag(FLAG_HALF_CARRY), cpu.getFlag(FLAG_CARRY));
+           cpu.getFlag(CPUFlags::ZERO), cpu.getFlag(CPUFlags::SUBTRACT),
+           cpu.getFlag(CPUFlags::HALF_CARRY), cpu.getFlag(CPUFlags::CARRY));
 }
 
 }

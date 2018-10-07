@@ -28,9 +28,9 @@ void rlc(Emulator &emulator, Word operand) {
     value <<= 1;
     value |= oldValue >> 7;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, oldValue >> 7);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, oldValue >> 7);
 }
 
 /** Rotate n left through Carry flag. */
@@ -39,11 +39,11 @@ void rl(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
     value <<= 1;
-    value |= emulator.cpu.getFlag(FLAG_CARRY);
+    value |= emulator.cpu.getFlag(CPUFlags::CARRY);
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, oldValue >> 7);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, oldValue >> 7);
 }
 
 /** Rotate n right. Old bit 0 to Carry flag. */
@@ -54,9 +54,9 @@ void rrc(Emulator &emulator, Word operand) {
     value >>= 1;
     value |= (oldValue & 1) << 7;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, (oldValue & 1) != 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, (oldValue & 1) != 0);
 }
 
 /** Rotate n right through Carry flag. */
@@ -65,11 +65,11 @@ void rr(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
     value >>= 1;
-    value |= (emulator.cpu.getFlag(FLAG_CARRY) << 7);
+    value |= (emulator.cpu.getFlag(CPUFlags::CARRY) << 7);
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, (oldValue & 1) != 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, (oldValue & 1) != 0);
 }
 
 /** Shift n left into Carry. LSB of n set to 0. */
@@ -79,9 +79,9 @@ void sla(Emulator &emulator, Word operand) {
     Byte oldValue = value;
     value <<= 1;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, oldValue >> 7);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, oldValue >> 7);
 }
 
 /** Shift n right into Carry. MSB doesn't change. */
@@ -93,9 +93,9 @@ void sra(Emulator &emulator, Word operand) {
     // Preserve the MSB
     value |= oldValue & 0x80;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, (oldValue & 1) != 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, (oldValue & 1) != 0);
 }
 
 /** Shift n right into Carry. MSB set to 0. */
@@ -105,9 +105,9 @@ void srl(Emulator &emulator, Word operand) {
     Byte oldValue = value;
     value >>= 1;
 
-    emulator.cpu.resetFlag(FLAG_SUBTRACT | FLAG_HALF_CARRY);
-    emulator.cpu.setFlag(FLAG_ZERO, value == 0);
-    emulator.cpu.setFlag(FLAG_CARRY, (oldValue & 1) != 0);
+    emulator.cpu.resetFlag(CPUFlags::SUBTRACT | CPUFlags::HALF_CARRY);
+    emulator.cpu.setFlag(CPUFlags::ZERO, value == 0);
+    emulator.cpu.setFlag(CPUFlags::CARRY, (oldValue & 1) != 0);
 }
 
 
