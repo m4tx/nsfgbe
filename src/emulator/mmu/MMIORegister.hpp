@@ -6,11 +6,14 @@
 
 namespace nsfgbe {
 
-enum MMIOPermissions {
+enum class MMIOPermissions {
+    NONE = 0,
     READ = 1 << 0,
     WRITE = 1 << 1,
     READ_WRITE = READ | WRITE,
 };
+
+MMIOPermissions operator&(MMIOPermissions a, MMIOPermissions b);
 
 template<MMIOPermissions P>
 class MMIORegister : public BaseMMIORegister {
@@ -18,16 +21,16 @@ protected:
     Byte value;
 
     Byte getValue() const override {
-//        if (P & READ) {
-        return value;
+//        if ((P & MMIOPermissions::READ) == MMIOPermissions::READ) {
+            return value;
 //        } else {
 //            return 0xFF;
 //        }
     }
 
     void setValue(Byte value) override {
-//        if (P & WRITE) {
-        this->value = value;
+//        if ((P & MMIOPermissions::WRITE) == MMIOPermissions::WRITE) {
+            this->value = value;
 //        }
     }
 

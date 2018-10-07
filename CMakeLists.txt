@@ -48,7 +48,7 @@ add_library(nsfgbe_lib
         src/emulator/cpu/instructions/impl/Miscellaneous.cpp src/emulator/cpu/instructions/impl/Miscellaneous.hpp
         src/emulator/cpu/instructions/impl/Shifts.cpp src/emulator/cpu/instructions/impl/Shifts.hpp
         src/emulator/gpu/OAMEntry.hpp src/emulator/gpu/OAMEntry.cpp
-        src/emulator/mmu/MMIORegister.hpp
+        src/emulator/mmu/MMIORegister.cpp src/emulator/mmu/MMIORegister.hpp
         src/emulator/dma/DMA.cpp src/emulator/dma/DMA.hpp
         src/emulator/dma/DMARegister.cpp src/emulator/dma/DMARegister.hpp
         src/emulator/joypad/JoypadRegister.cpp src/emulator/joypad/JoypadRegister.hpp
