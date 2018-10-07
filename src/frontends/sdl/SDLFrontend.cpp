@@ -50,7 +50,7 @@ void SDLFrontend::update() {
 }
 
 bool SDLFrontend::isPressed(SDLFrontend::Key key) const {
-    return keyStates[KEY_MAP[key]] != 0;
+    return keyStates[KEY_MAP[static_cast<size_t>(key)]] != 0;
 }
 
 void SDLFrontend::beforeSurfaceUpdate() {

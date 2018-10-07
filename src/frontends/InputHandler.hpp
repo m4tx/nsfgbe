@@ -6,7 +6,7 @@ namespace nsfgbe {
 
 class InputHandler {
 public:
-    enum Key {
+    enum class Key {
         RIGHT,
         LEFT,
         UP,
