@@ -11,15 +11,15 @@ class GPU;
 
 class Fetcher {
 private:
-    enum FetcherMode {
+    enum class FetcherMode {
         /** Read tile from the memory */
-                READ_TILE,
+        READ_TILE,
         /** Read first byte of the current tile */
-                READ_DATA_0,
+        READ_DATA_0,
         /** Read second byte of the current tile */
-                READ_DATA_1,
+        READ_DATA_1,
         /** Push the pixels to FIFO */
-                ADD_TO_FIFO,
+        ADD_TO_FIFO,
 
         READ_SPRITE_PATTERN,
         READ_SPRITE_DATA_0,

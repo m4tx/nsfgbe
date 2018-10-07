@@ -14,38 +14,38 @@ Fetcher::Fetcher(GPU &gpu, PixelFIFO &pixelFIFO) :
 void Fetcher::fetch(Word tileId, Byte verticalLine) {
     this->tileId = tileId;
     this->verticalLine = verticalLine;
-    this->currentMode = READ_TILE;
+    this->currentMode = FetcherMode::READ_TILE;
 }
 
 void Fetcher::tick() {
     switch (currentMode) {
         // Background
-        case READ_TILE:
+        case FetcherMode::READ_TILE:
             readTile();
             break;
-        case READ_DATA_0:
+        case FetcherMode::READ_DATA_0:
             readData0();
             break;
-        case READ_DATA_1:
+        case FetcherMode::READ_DATA_1:
             readData1();
             buildBgPixels();
             // falls through
-        case ADD_TO_FIFO:
+        case FetcherMode::ADD_TO_FIFO:
             addToFifo();
             break;
 
             // Sprites
-        case READ_SPRITE_PATTERN:
+        case FetcherMode::READ_SPRITE_PATTERN:
             readSpritePattern();
             break;
-        case READ_SPRITE_DATA_0:
+        case FetcherMode::READ_SPRITE_DATA_0:
             readSpriteData0();
             break;
-        case READ_SPRITE_DATA_1:
+        case FetcherMode::READ_SPRITE_DATA_1:
             readSpriteData1();
             buildSpritePixels();
             break;
-        case ADD_SPRITE_TO_FIFO:
+        case FetcherMode::ADD_SPRITE_TO_FIFO:
             addSpriteToFifo();
             break;
     }
@@ -58,21 +58,21 @@ void Fetcher::tick() {
 void Fetcher::readTile() {
     tile = gpu.vram[gpu.registers.lcdc.getBgTileMapAddress() + tileId];
 
-    currentMode = READ_DATA_0;
+    currentMode = FetcherMode::READ_DATA_0;
 }
 
 void Fetcher::readData0() {
     Address tileAddress = gpu.registers.lcdc.getBgTileAddress(tile);
     tileData0 = gpu.vram[tileAddress + 2 * verticalLine];
 
-    currentMode = READ_DATA_1;
+    currentMode = FetcherMode::READ_DATA_1;
 }
 
 void Fetcher::readData1() {
     Address tileAddress = gpu.registers.lcdc.getBgTileAddress(tile);
     tileData1 = gpu.vram[tileAddress + 2 * verticalLine + 1];
 
-    currentMode = ADD_TO_FIFO;
+    currentMode = FetcherMode::ADD_TO_FIFO;
 }
 
 void Fetcher::buildBgPixels() {
@@ -93,7 +93,7 @@ void Fetcher::addToFifo() {
             // Wrap tiles horizontally
             tileId -= 32;
         }
-        currentMode = READ_TILE;
+        currentMode = FetcherMode::READ_TILE;
     }
 }
 
@@ -114,7 +114,7 @@ void Fetcher::fetchSprite(Byte spriteId, Byte verticalLine, Byte pixelsToDrop) {
     this->spritePixelsToDrop = pixelsToDrop;
 
     this->lastMode = currentMode;
-    this->currentMode = READ_SPRITE_PATTERN;
+    this->currentMode = FetcherMode::READ_SPRITE_PATTERN;
 }
 
 OAMEntry &Fetcher::getCurrentOAMEntry() const {
@@ -128,19 +128,19 @@ void Fetcher::readSpritePattern() {
             PIXEL_SOURCE_OB1 :
             PIXEL_SOURCE_OB0;
 
-    currentMode = READ_SPRITE_DATA_0;
+    currentMode = FetcherMode::READ_SPRITE_DATA_0;
 }
 
 void Fetcher::readSpriteData0() {
     spriteData0 = gpu.vram[0x0000 + 16 * sprite + 2 * spriteVerticalLine];
 
-    currentMode = READ_SPRITE_DATA_1;
+    currentMode = FetcherMode::READ_SPRITE_DATA_1;
 }
 
 void Fetcher::readSpriteData1() {
     spriteData1 = gpu.vram[0x0000 + 16 * sprite + 2 * spriteVerticalLine + 1];
 
-    currentMode = ADD_SPRITE_TO_FIFO;
+    currentMode = FetcherMode::ADD_SPRITE_TO_FIFO;
 }
 
 void Fetcher::buildSpritePixels() {
@@ -177,10 +177,10 @@ void Fetcher::dropSpritePixels() {
 }
 
 bool Fetcher::isFetchingSprite() const {
-    return currentMode == READ_SPRITE_PATTERN ||
-           currentMode == READ_SPRITE_DATA_0 ||
-           currentMode == READ_SPRITE_DATA_1 ||
-           currentMode == ADD_SPRITE_TO_FIFO;
+    return currentMode == FetcherMode::READ_SPRITE_PATTERN ||
+           currentMode == FetcherMode::READ_SPRITE_DATA_0 ||
+           currentMode == FetcherMode::READ_SPRITE_DATA_1 ||
+           currentMode == FetcherMode::ADD_SPRITE_TO_FIFO;
 }
 
 }
