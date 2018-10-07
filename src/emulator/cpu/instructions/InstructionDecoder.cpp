@@ -27,20 +27,20 @@ const Instruction &InstructionDecoder::getInstructionAt(Address address) const {
 InstructionInstance InstructionDecoder::retrieveInstruction() {
     Word pc = cpu.registers.pc;
     const Instruction &instruction = getInstructionAt(pc);
-    Word newPc = pc + instruction.opcodeLength;
+    Word newPc = pc + static_cast<Word>(instruction.opcodeLength);
 
     Word operand = 0;
     switch (instruction.operandLength) {
-        case OPERAND_LEN_ONE:
+        case OperandLength::ONE:
             operand = mmu[newPc];
             break;
-        case OPERAND_LEN_TWO:
+        case OperandLength::TWO:
             operand = mmu[newPc] + (mmu[newPc + 1] << 8);
             break;
-        case OPERAND_LEN_ZERO:
+        case OperandLength::ZERO:
             break;
     }
-    newPc += instruction.operandLength;
+    newPc += static_cast<Word>(instruction.operandLength);
 
     cpu.registers.pc = newPc;
     return InstructionInstance(pc, instruction, operand);

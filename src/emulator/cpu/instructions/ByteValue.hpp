@@ -6,17 +6,17 @@
 
 namespace nsfgbe {
 
-enum InstrArgByte {
-    ARG_REG_B,
-    ARG_REG_C,
-    ARG_REG_D,
-    ARG_REG_E,
-    ARG_REG_H,
-    ARG_REG_L,
-    ARG_PTR_HL,
-    ARG_REG_A,
-    ARG_PTR_BC,
-    ARG_PTR_DE,
+enum class ByteArg {
+    REG_B,
+    REG_C,
+    REG_D,
+    REG_E,
+    REG_H,
+    REG_L,
+    PTR_HL,
+    REG_A,
+    PTR_BC,
+    PTR_DE,
 };
 
 /**
@@ -26,7 +26,7 @@ enum InstrArgByte {
  *
  * @see WordValue
  */
-template<InstrArgByte ARG>
+template<ByteArg ARG>
 class ByteValue {
 private:
     Emulator &emulator;
@@ -40,7 +40,7 @@ public:
 
     ByteValue<ARG> &operator=(Byte value);
 
-    template<InstrArgByte A>
+    template<ByteArg A>
     ByteValue<ARG> &operator=(ByteValue<A> const &value) {
         *this = static_cast<Byte>(value);
         return *this;
@@ -78,73 +78,73 @@ public:
 };
 
 template<>
-ByteValue<ARG_REG_B>::operator Byte() const;
+ByteValue<ByteArg::REG_B>::operator Byte() const;
 
 template<>
-ByteValue<ARG_REG_B> &ByteValue<ARG_REG_B>::operator=(Byte value);
-
-
-template<>
-ByteValue<ARG_REG_C>::operator Byte() const;
-
-template<>
-ByteValue<ARG_REG_C> &ByteValue<ARG_REG_C>::operator=(Byte value);
+ByteValue<ByteArg::REG_B> &ByteValue<ByteArg::REG_B>::operator=(Byte value);
 
 
 template<>
-ByteValue<ARG_REG_D>::operator Byte() const;
+ByteValue<ByteArg::REG_C>::operator Byte() const;
 
 template<>
-ByteValue<ARG_REG_D> &ByteValue<ARG_REG_D>::operator=(Byte value);
-
-
-template<>
-ByteValue<ARG_REG_E>::operator Byte() const;
-
-template<>
-ByteValue<ARG_REG_E> &ByteValue<ARG_REG_E>::operator=(Byte value);
+ByteValue<ByteArg::REG_C> &ByteValue<ByteArg::REG_C>::operator=(Byte value);
 
 
 template<>
-ByteValue<ARG_REG_H>::operator Byte() const;
+ByteValue<ByteArg::REG_D>::operator Byte() const;
 
 template<>
-ByteValue<ARG_REG_H> &ByteValue<ARG_REG_H>::operator=(Byte value);
-
-
-template<>
-ByteValue<ARG_REG_L>::operator Byte() const;
-
-template<>
-ByteValue<ARG_REG_L> &ByteValue<ARG_REG_L>::operator=(Byte value);
+ByteValue<ByteArg::REG_D> &ByteValue<ByteArg::REG_D>::operator=(Byte value);
 
 
 template<>
-ByteValue<ARG_PTR_HL>::operator Byte() const;
+ByteValue<ByteArg::REG_E>::operator Byte() const;
 
 template<>
-ByteValue<ARG_PTR_HL> &ByteValue<ARG_PTR_HL>::operator=(Byte value);
-
-
-template<>
-ByteValue<ARG_REG_A>::operator Byte() const;
-
-template<>
-ByteValue<ARG_REG_A> &ByteValue<ARG_REG_A>::operator=(Byte value);
+ByteValue<ByteArg::REG_E> &ByteValue<ByteArg::REG_E>::operator=(Byte value);
 
 
 template<>
-ByteValue<ARG_PTR_BC>::operator Byte() const;
+ByteValue<ByteArg::REG_H>::operator Byte() const;
 
 template<>
-ByteValue<ARG_PTR_BC> &ByteValue<ARG_PTR_BC>::operator=(Byte value);
+ByteValue<ByteArg::REG_H> &ByteValue<ByteArg::REG_H>::operator=(Byte value);
 
 
 template<>
-ByteValue<ARG_PTR_DE>::operator Byte() const;
+ByteValue<ByteArg::REG_L>::operator Byte() const;
 
 template<>
-ByteValue<ARG_PTR_DE> &ByteValue<ARG_PTR_DE>::operator=(Byte value);
+ByteValue<ByteArg::REG_L> &ByteValue<ByteArg::REG_L>::operator=(Byte value);
+
+
+template<>
+ByteValue<ByteArg::PTR_HL>::operator Byte() const;
+
+template<>
+ByteValue<ByteArg::PTR_HL> &ByteValue<ByteArg::PTR_HL>::operator=(Byte value);
+
+
+template<>
+ByteValue<ByteArg::REG_A>::operator Byte() const;
+
+template<>
+ByteValue<ByteArg::REG_A> &ByteValue<ByteArg::REG_A>::operator=(Byte value);
+
+
+template<>
+ByteValue<ByteArg::PTR_BC>::operator Byte() const;
+
+template<>
+ByteValue<ByteArg::PTR_BC> &ByteValue<ByteArg::PTR_BC>::operator=(Byte value);
+
+
+template<>
+ByteValue<ByteArg::PTR_DE>::operator Byte() const;
+
+template<>
+ByteValue<ByteArg::PTR_DE> &ByteValue<ByteArg::PTR_DE>::operator=(Byte value);
 
 }
 

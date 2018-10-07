@@ -21,7 +21,7 @@ void rrca(Emulator &emulator, Word operand);
 void rra(Emulator &emulator, Word operand);
 
 /** Rotate n left. Old bit 7 to Carry flag. */
-template<InstrArgByte R>
+template<ByteArg R>
 void rlc(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -34,7 +34,7 @@ void rlc(Emulator &emulator, Word operand) {
 }
 
 /** Rotate n left through Carry flag. */
-template<InstrArgByte R>
+template<ByteArg R>
 void rl(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -47,7 +47,7 @@ void rl(Emulator &emulator, Word operand) {
 }
 
 /** Rotate n right. Old bit 0 to Carry flag. */
-template<InstrArgByte R>
+template<ByteArg R>
 void rrc(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -60,7 +60,7 @@ void rrc(Emulator &emulator, Word operand) {
 }
 
 /** Rotate n right through Carry flag. */
-template<InstrArgByte R>
+template<ByteArg R>
 void rr(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -73,7 +73,7 @@ void rr(Emulator &emulator, Word operand) {
 }
 
 /** Shift n left into Carry. LSB of n set to 0. */
-template<InstrArgByte R>
+template<ByteArg R>
 void sla(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -85,7 +85,7 @@ void sla(Emulator &emulator, Word operand) {
 }
 
 /** Shift n right into Carry. MSB doesn't change. */
-template<InstrArgByte R>
+template<ByteArg R>
 void sra(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -99,7 +99,7 @@ void sra(Emulator &emulator, Word operand) {
 }
 
 /** Shift n right into Carry. MSB set to 0. */
-template<InstrArgByte R>
+template<ByteArg R>
 void srl(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;

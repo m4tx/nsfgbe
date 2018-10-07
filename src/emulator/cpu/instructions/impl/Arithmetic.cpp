@@ -77,7 +77,7 @@ void xorImm8(Emulator &emulator, Word operand) {
 }
 
 void cpImm8(Emulator &emulator, Word operand) {
-    subFlags(emulator, ByteValue<ARG_REG_A>(emulator),
+    subFlags(emulator, ByteValue<ByteArg::REG_A>(emulator),
              static_cast<Byte>(operand));
 }
 

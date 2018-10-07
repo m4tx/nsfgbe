@@ -8,7 +8,7 @@
 namespace nsfgbe {
 namespace instr {
 
-template<int B, InstrArgByte R>
+template<int B, ByteArg R>
 void bit(Emulator &emulator, Word operand) {
     Byte value = ByteValue<R>(emulator);
 
@@ -17,13 +17,13 @@ void bit(Emulator &emulator, Word operand) {
     emulator.cpu.setFlag(FLAG_HALF_CARRY);
 }
 
-template<int B, InstrArgByte R>
+template<int B, ByteArg R>
 void res(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     value &= (Byte) ~(1 << B);
 }
 
-template<int B, InstrArgByte R>
+template<int B, ByteArg R>
 void set(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     value |= (Byte) (1 << B);

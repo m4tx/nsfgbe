@@ -6,12 +6,12 @@
 
 namespace nsfgbe {
 
-enum InstrArgWord {
-    ARG_REG_AF,
-    ARG_REG_BC,
-    ARG_REG_DE,
-    ARG_REG_HL,
-    ARG_REG_SP,
+enum class WordArg {
+    REG_AF,
+    REG_BC,
+    REG_DE,
+    REG_HL,
+    REG_SP,
 };
 
 /**
@@ -20,7 +20,7 @@ enum InstrArgWord {
  *
  * @see ByteValue
  */
-template<InstrArgWord ARG>
+template<WordArg ARG>
 class WordValue {
 private:
     Emulator &emulator;
@@ -34,7 +34,7 @@ public:
 
     WordValue<ARG> &operator=(Word value);
 
-    template<InstrArgWord A>
+    template<WordArg A>
     WordValue<ARG> &operator=(WordValue<A> const &value) {
         *this = static_cast<Word>(value);
         return *this;
@@ -72,38 +72,38 @@ public:
 };
 
 template<>
-WordValue<ARG_REG_AF>::operator Word() const;
+WordValue<WordArg::REG_AF>::operator Word() const;
 
 template<>
-WordValue<ARG_REG_AF> &WordValue<ARG_REG_AF>::operator=(Word value);
-
-
-template<>
-WordValue<ARG_REG_BC>::operator Word() const;
-
-template<>
-WordValue<ARG_REG_BC> &WordValue<ARG_REG_BC>::operator=(Word value);
+WordValue<WordArg::REG_AF> &WordValue<WordArg::REG_AF>::operator=(Word value);
 
 
 template<>
-WordValue<ARG_REG_DE>::operator Word() const;
+WordValue<WordArg::REG_BC>::operator Word() const;
 
 template<>
-WordValue<ARG_REG_DE> &WordValue<ARG_REG_DE>::operator=(Word value);
-
-
-template<>
-WordValue<ARG_REG_HL>::operator Word() const;
-
-template<>
-WordValue<ARG_REG_HL> &WordValue<ARG_REG_HL>::operator=(Word value);
+WordValue<WordArg::REG_BC> &WordValue<WordArg::REG_BC>::operator=(Word value);
 
 
 template<>
-WordValue<ARG_REG_SP>::operator Word() const;
+WordValue<WordArg::REG_DE>::operator Word() const;
 
 template<>
-WordValue<ARG_REG_SP> &WordValue<ARG_REG_SP>::operator=(Word value);
+WordValue<WordArg::REG_DE> &WordValue<WordArg::REG_DE>::operator=(Word value);
+
+
+template<>
+WordValue<WordArg::REG_HL>::operator Word() const;
+
+template<>
+WordValue<WordArg::REG_HL> &WordValue<WordArg::REG_HL>::operator=(Word value);
+
+
+template<>
+WordValue<WordArg::REG_SP>::operator Word() const;
+
+template<>
+WordValue<WordArg::REG_SP> &WordValue<WordArg::REG_SP>::operator=(Word value);
 
 }
 

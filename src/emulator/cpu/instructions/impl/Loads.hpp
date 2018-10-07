@@ -14,14 +14,14 @@ namespace instr {
 // ####################################
 
 /** Put one-byte value n into arg. */
-template<InstrArgByte R>
+template<ByteArg R>
 void ldR8Imm8(Emulator &emulator, Word operand) {
     ByteValue<R> dst(emulator);
     dst = static_cast<Byte>(operand);
 }
 
 /** Put value src into dst. */
-template<InstrArgByte DST, InstrArgByte SRC>
+template<ByteArg DST, ByteArg SRC>
 void ldR8R8(Emulator &emulator, Word operand) {
     ByteValue<DST> dst(emulator);
     dst = static_cast<Byte>(ByteValue<SRC>(emulator));
@@ -62,7 +62,7 @@ void ldhAIoImm8(Emulator &emulator, Word operand);
 // ####################################
 
 /** Put two-byte value n into arg. */
-template<InstrArgWord R>
+template<WordArg R>
 void ldR16Imm16(Emulator &emulator, Word operand) {
     WordValue<R> dst(emulator);
     dst = operand;
@@ -84,7 +84,7 @@ void pushImm16(Emulator &emulator, Word operand);
 Word popRet16(Emulator &emulator);
 
 /** Push register pair nn onto stack. Decrement Stack Pointer (SP) twice. */
-template<InstrArgWord R>
+template<WordArg R>
 void push(Emulator &emulator, Word operand) {
     pushImm16(emulator, WordValue<R>(emulator));
 }
@@ -93,7 +93,7 @@ void push(Emulator &emulator, Word operand) {
  * Pop two bytes off stack into register pair nn. Increment
  * Stack Pointer (SP) twice.
  */
-template<InstrArgWord R>
+template<WordArg R>
 void pop(Emulator &emulator, Word operand) {
     WordValue<R> dst(emulator);
     dst = popRet16(emulator);

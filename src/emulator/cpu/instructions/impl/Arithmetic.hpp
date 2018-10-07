@@ -23,7 +23,7 @@ Byte addFlags(Emulator &emulator, Byte a, Byte b, Byte c = 0);
 void addImm8(Emulator &emulator, Word operand);
 
 /** Add n to A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void add(Emulator &emulator, Word operand) {
     addImm8(emulator, ByteValue<R>(emulator));
 }
@@ -32,7 +32,7 @@ void add(Emulator &emulator, Word operand) {
 void adcImm8(Emulator &emulator, Word operand);
 
 /** Add n + Carry flag to A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void adc(Emulator &emulator, Word operand) {
     adcImm8(emulator, ByteValue<R>(emulator));
 }
@@ -47,7 +47,7 @@ Byte subFlags(Emulator &emulator, Byte a, Byte b, Byte c = 0);
 void subImm8(Emulator &emulator, Word operand);
 
 /** Subtract R from A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void sub(Emulator &emulator, Word operand) {
     subImm8(emulator, ByteValue<R>(emulator));
 }
@@ -56,7 +56,7 @@ void sub(Emulator &emulator, Word operand) {
 void sbcImm8(Emulator &emulator, Word operand);
 
 /** Subtract n + Carry flag from A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void sbc(Emulator &emulator, Word operand) {
     sbcImm8(emulator, ByteValue<R>(emulator));
 }
@@ -65,7 +65,7 @@ void sbc(Emulator &emulator, Word operand) {
 void andImm8(Emulator &emulator, Word operand);
 
 /** Logical AND n with register A, result in A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void andR8(Emulator &emulator, Word operand) {
     andImm8(emulator, ByteValue<R>(emulator));
 }
@@ -74,7 +74,7 @@ void andR8(Emulator &emulator, Word operand) {
 void orImm8(Emulator &emulator, Word operand);
 
 /** Logical OR n with register A, result in A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void orR8(Emulator &emulator, Word operand) {
     orImm8(emulator, ByteValue<R>(emulator));
 }
@@ -83,7 +83,7 @@ void orR8(Emulator &emulator, Word operand) {
 void xorImm8(Emulator &emulator, Word operand);
 
 /** Logical exclusive OR register n with register A, result in A. */
-template<InstrArgByte R>
+template<ByteArg R>
 void xorR8(Emulator &emulator, Word operand) {
     xorImm8(emulator, ByteValue<R>(emulator));
 }
@@ -92,9 +92,9 @@ void xorR8(Emulator &emulator, Word operand) {
  * Compare A with n. This is basically an A - n subtraction instruction but
  * the results are thrown away.
  */
-template<InstrArgByte R>
+template<ByteArg R>
 void cp(Emulator &emulator, Word operand) {
-    subFlags(emulator, ByteValue<ARG_REG_A>(emulator), ByteValue<R>(emulator));
+    subFlags(emulator, ByteValue<ByteArg::REG_A>(emulator), ByteValue<R>(emulator));
 }
 
 /**
@@ -104,7 +104,7 @@ void cp(Emulator &emulator, Word operand) {
 void cpImm8(Emulator &emulator, Word operand);
 
 /** Increment single-byte register n. */
-template<InstrArgByte R>
+template<ByteArg R>
 void incR8(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -117,7 +117,7 @@ void incR8(Emulator &emulator, Word operand) {
 }
 
 /** Decrement single-byte register n. */
-template<InstrArgByte R>
+template<ByteArg R>
 void decR8(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     Byte oldValue = value;
@@ -133,7 +133,7 @@ void decR8(Emulator &emulator, Word operand) {
 // ####################################
 
 /** Add n to HL. */
-template<InstrArgWord SRC>
+template<WordArg SRC>
 void addHlR16(Emulator &emulator, Word operand) {
     Word a = emulator.cpu.registers.hl;
     Word b = WordValue<SRC>(emulator);
@@ -158,13 +158,13 @@ void addSpImm8(Emulator &emulator, Word operand);
 Word addWordByteFlags(Emulator &emulator, Word a, SignedByte b);
 
 /** Increment double-byte register n. */
-template<InstrArgWord R>
+template<WordArg R>
 void incR16(Emulator &emulator, Word operand) {
     ++WordValue<R>(emulator);
 }
 
 /** Decrement double-byte register n. */
-template<InstrArgWord R>
+template<WordArg R>
 void decR16(Emulator &emulator, Word operand) {
     --WordValue<R>(emulator);
 }

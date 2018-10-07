@@ -11,15 +11,15 @@ namespace nsfgbe {
 
 class Emulator;
 
-enum OperandLength {
-    OPERAND_LEN_ZERO = 0,
-    OPERAND_LEN_ONE = 1,
-    OPERAND_LEN_TWO = 2,
+enum class OperandLength {
+    ZERO = 0,
+    ONE = 1,
+    TWO = 2,
 };
 
-enum OpcodeLength {
-    OPCODE_LEN_ONE = 1,
-    OPCODE_LEN_TWO = 2,
+enum class OpcodeLength {
+    ONE = 1,
+    TWO = 2,
 };
 
 typedef std::function<void(Emulator &, Operand)> Executor;
@@ -38,8 +38,8 @@ public:
             std::string format = "",
             size_t ticks = 4,
             Executor executor = defaultExecutor,
-            OperandLength operandLength = OPERAND_LEN_ZERO,
-            OpcodeLength opcodeLength = OPCODE_LEN_ONE);
+            OperandLength operandLength = OperandLength::ZERO,
+            OpcodeLength opcodeLength = OpcodeLength::ONE);
 
     Instruction(Instruction &&other) noexcept;
 

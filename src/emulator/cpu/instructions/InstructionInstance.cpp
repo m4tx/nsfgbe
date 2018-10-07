@@ -20,7 +20,7 @@ std::ostream &
 operator<<(std::ostream &os, const InstructionInstance &instance) {
     std::ostringstream hexStringStream;
     hexStringStream << "$$"; // $$ as this will be passed to regex_replace
-    if (instance.instruction.operandLength == OPERAND_LEN_ONE) {
+    if (instance.instruction.operandLength == OperandLength::ONE) {
         hexStringStream << std::setw(2);
     } else {
         hexStringStream << std::setw(4);

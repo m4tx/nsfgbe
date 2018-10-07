@@ -9,7 +9,7 @@ namespace nsfgbe {
 namespace instr {
 
 /** Swap upper & lower nibbles of n. */
-template <InstrArgByte R>
+template <ByteArg R>
 void swap(Emulator &emulator, Word operand) {
     ByteValue<R> value(emulator);
     // Byte is actually unsigned char, so no sign-extending occurs in value >> 4
