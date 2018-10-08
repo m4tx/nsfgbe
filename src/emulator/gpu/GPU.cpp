@@ -60,13 +60,13 @@ bool GPU::tick(size_t ticks) {
                 case GPUModeId::HBLANK:
                     if (registers.ly == 143) {
                         switchModeTo(GPUModeId::VBLANK);
+                        interruptManager.fireVBlankInterrupt();
                     } else {
                         setCurrentScanline(registers.ly + 1);
                         switchModeTo(GPUModeId::OAM_SEARCH);
                     }
                     break;
                 case GPUModeId::VBLANK:
-                    interruptManager.fireVBlankInterrupt();
                     setCurrentScanline(0);
                     switchModeTo(GPUModeId::OAM_SEARCH);
                     return true;
