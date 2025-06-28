@@ -1,6 +1,7 @@
 #include "Instruction.hpp"
 
 #include <utility>
+#include <stdexcept>
 
 namespace nsfgbe {
 
